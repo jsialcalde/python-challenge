@@ -67,8 +67,6 @@ with open(output_path, 'w', newline='') as csvfile:
 
     # Write the summary
     csvwriter.writerow(['Election Results'])
-    csvwriter.writerow([])
-    csvwriter.writerow(['Election Results'])
     csvwriter.writerow(['-----------------------------'])
     csvwriter.writerow([f'Total Votes: {vote_total}'])
     csvwriter.writerow(['-----------------------------'])
