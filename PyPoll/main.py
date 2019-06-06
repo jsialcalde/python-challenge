@@ -64,25 +64,25 @@ with open(output_path, 'w', newline='') as csvfile:
     # Initialize csv.writer
     csvwriter = csv.writer(csvfile, delimiter=' ')
 
+
     # Write the summary
-    csvwriter.writerow('Election Results')
-    csvwriter.writerow('\n')
-    csvwriter.writerow('Election Results')
-    csvwriter.writerow('-----------------------------')
-    csvwriter.writerow(f'Total Votes: {vote_total}')
-    csvwriter.writerow('-----------------------------')
+    csvwriter.writerow(['Election Results'])
+    csvwriter.writerow([])
+    csvwriter.writerow(['Election Results'])
+    csvwriter.writerow(['-----------------------------'])
+    csvwriter.writerow([f'Total Votes: {vote_total}'])
+    csvwriter.writerow(['-----------------------------'])
 
     votes = 0
     for candidate in candidates:
     # determine the winner based on popular vote
-        if (candidates[candidate] > votes):
-            winner[candidate]= candidate
+
         votes = candidates[candidate]
         vote_percentage = '{0:.3f}'.format((votes*100/vote_total))
-        csvwriter.writerow(f'{candidate}: {vote_percentage}% ({votes})')
+        csvwriter.writerow([f'{candidate}: {vote_percentage}% ({votes})'])
 
-    csvwriter.writerow('-----------------------------')
+    csvwriter.writerow(['-----------------------------'])
 
     for key in winner:
         csvwriter.writerow(f'Winner: {key}')
-    csvwriter.writerow('-----------------------------')
+    csvwriter.writerow(['-----------------------------'])
