@@ -50,14 +50,14 @@ with open(csvpath, newline='') as csvfile:
         # add net total to total balance
         total_balance += net_total    
 
-        # if net total amount is positive and greater 
+        # if net change is positive and greater than current greatest increase
         # than greatest increase in profits, overwrite amount,month
         if (net_change>maxAmount):
             maxAmount = net_change
             maxDate = month
 
-        # if net total amount is positive and greater 
-        # than greatest increase in profits, overwrite amount,month
+        # if net change is negative and lesser than current greatest decrease 
+        # than greatest decrease in profits, overwrite amount,month
         if (net_change<minAmount):
             minAmount = net_change
             minDate = month
@@ -65,7 +65,7 @@ with open(csvpath, newline='') as csvfile:
         #add net change to total cumulative net change
         total_net_change += net_change
     
-    # calculate avg change, account for net change being 0 in first row
+    # calculate avg change, account for net change being 0 in first row (subtract 1 from total months)
     avg_change = (total_net_change)/(count_months-1)        
     #   print to console
     print('Financial Analysis')
